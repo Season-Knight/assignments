@@ -1,0 +1,21 @@
+<xml>
+    <movietypes>
+        <movietype="comedy","sci-fi","romance","horror"/>
+    <movietypes movietype="comedy">
+        <titles/>
+        <titles title="Monty Python and the Holy Grail">
+            <movieinfo releasedate="May 25, 1975" directors="Terry Gilliam, Terry Jones" stars="Graham Chapman, John Cleese, Eric Idle"/>
+        <titles title="Deadpool">
+            <movieinfo releasedate="February 12, 2016" directors="Tim Miller" stars="Ryan Reynolds, Morena Baccarin, T.J. Miller"/>
+        </titles>
+    <movietypes movietype="sci-fi">
+        <titles/>
+        <titles title="Alien">
+            <movieinfo releasedate="June 22, 1979" directors="Ridley Scott" stars="Sigourney Weaver, Tom Skerritt, John Hurt"/>
+        <titles title="The Matrix">
+            <movieinfo release date="March 31, 1999" directors="Lana Wachowski, Lilly Wachowski" stars="Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss"/>
+        </titles>
+   </movietypes>    
+   </xml>
+                
+            < 
