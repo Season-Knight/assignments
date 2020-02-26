@@ -1,0 +1,47 @@
+{
+"$schema": "http://localhost:3001/schema#",
+"$id": "http://localhost:3001",
+"title": "Users",
+"description": "Plots and Schematics to rule the world",
+"type": "object",
+"properties": {
+        "_Id": {
+            "description": "ID as assigned by mongo",
+            "type": "string"
+        },
+        "fName": {
+            "description": "First Name of User",
+            "type": "string"
+        },
+        "lName": {
+            "description": "last name",
+            "type": "string"
+        },
+        "email": {
+            "description": "emails for user",
+            "type": "array",
+            "items": {
+                "type":"string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+            
+        },
+        "password": {
+            "type": "string",
+            "pattern": "(?=.*[!@#$%^&*])"
+        },
+        "age": {    
+            "description": "age of user",
+            "type": "number",
+            "minimum": 18,
+            "maximum": 130
+        },
+        "phone": {
+            "type": "string",
+            "pattern":‎ "/^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/"
+
+        }
+},
+"required": ["fName","lName", "email","password"]
+}
