@@ -1,19 +1,14 @@
 import React from 'react';
 import './App.css';
-import DiceCreate from './DiceCreate'
-
+import MainRouter from './components/MainRouter'
 
 
 function App() {
   return (
     <div className="App">
-     
-     <DiceCreate />
-    
+      <MainRouter />
     </div>
   );
 }
 
 export default App;
-
-

@@ -1,15 +1,15 @@
 //example of function
 import React from 'react'
-import './SignUp.css'
 import {Link} from 'react-router-dom'
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles';
+import {uriBase, api} from '../const'
 
 const useStyles = makeStyles(theme => ({
     root: {
       '& > *': {
         margin: theme.spacing(1),
-        "background-color": "grey"
+        // "background-color": "grey"
       },
       
     },
@@ -24,10 +24,42 @@ export default function SignUp (props){
  //function will be set as an arrow function
     let [fName, setfName] = React.useState("")
     let [lName, setlName] = React.useState("")
-    let [eMail, seteMail] = React.useState("")
-    const onClickHandler = () => {
-        setMessage("You have been enrolled! ")
+    let [userName, setUserName] = React.useState("")
+    let [password, setPassword] = React.useState("")
+    
+    const onClickHandler = (event) => {
+        event.preventDefault()
+        let formData = new FormData()
+        formData.append("fName", fName)
+        formData.append("lName", lName)
+        formData.append("userName", userName)
+        formData.append("password", password)
+            for(var key of formData.entries() ){
+                console.log(key[0] + ", " + key[1])
+            }
+            
+
+        fetch(`${uriBase}${api}/users/signup`,{
+            method: "POST",
+            body: formData
+        })
+        .then(HttpRequest => {
+            if(!HttpRequest.ok){
+                throw new Error ("Sign up Failed")
+            }
+                return HttpRequest.json()
+        })
+        .then(user => {
+            //ToDo Handle User
+            setMessage("Welcome!")
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+        setMessage("You are Signed Up!")
     }
+
     const onChangeHandler = (event) => {
         switch (event.target.name) {
             case 'fName':
@@ -36,20 +68,34 @@ export default function SignUp (props){
             case 'lName':
                 setlName(event.target.value)  
                 break  
-            case 'eMail':
-                seteMail(event.target.value)    
+            case 'userName':
+                setUserName(event.target.value)   
+                break
+            case 'password':
+                setPassword(event.target.value)
+                break
+
                 default: 
         }
     }
     return (
         <div className={classes.root}>
             <h1>{message}</h1>
-            
+            <form>
+            <div>
             First Name<input type= "text" placeholder="First Name" onChange={onChangeHandler} name="fName" value={fName}></input><br></br>
             Last Name<input onChange={onChangeHandler} name="lName" value={lName}></input><br></br>
-            Email<input onChange={onChangeHandler} name='eMail' value={eMail}></input><br></br>
-            <Button variant="contained" color="primary" onClick={onClickHandler}>Enroll Me!</Button><br></br>
-            <Link to="login">Back to Login </Link>
+            User Name<input onChange={onChangeHandler} name='userName' value={userName}></input><br></br>
+            Password<input onChange={onChangeHandler} name='password' value={password}></input><br></br>
+            </div>
+            <div>
+            <input type='submit' onClick={onClickHandler}></input><br></br>
+            </div>
+            </form>
+            <div>
+            <Link to="login">Back to Login </Link><br></br>
+            <Link to="Tracker">Track Your Hikes</Link>
+            </div>
         </div>
     )
 }
