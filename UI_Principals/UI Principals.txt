@@ -1,0 +1,18 @@
+﻿1. What is a User Interface? 
+1. The user interface is how the customer or user interacts with the application, its what they see and do in order to make changes.
+2. Explain the difference between the User Experience and the User Interface. 
+1. The user interface is how the application looks and does on the outside appearance, user experience is the interactivity and ease of which the user can utilize the functionality of the app. 
+3. What is a Mock Up?  
+1. The mockup is a general representation of what an app will look like and do.
+   1. Define Low & High Fidelity 
+1. Low Fidelity is a mock up that has very low functionality to just get the general idea presented, High Fidelity is a working application that has some functionality, closer to the finished product
+   1. Outline the benefits of using one 
+1. Low Fidelity is quicker, low cost, High fidelity is closer to what the final product looks like but costs much more.
+
+
+4. What is Mobile First Design? 
+1. Mobile First Design is when the application is created as a mobile app first and then as features get added developed up to a larger and desktop scale.
+5. Who should be in control of the User Interface? 
+1. The user
+6. Define Reusable Components. 
+1. They are components that can be used multiple times within your application
